@@ -4,11 +4,12 @@ source "http://rubygems.org"
 gemspec
 
 group :development, :test do
+  gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'minitest-reporters','~>1.1'
   gem 'rake', '>=11'
   gem 'rubocop-minitest'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rake'
-  gem 'sqlite3', '~>1.3'
+  gem 'sqlite3', '~>1.3', platform: :ruby
 end
