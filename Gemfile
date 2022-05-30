@@ -5,7 +5,6 @@ gemspec
 
 group :development, :test do
   gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
-  gem 'minitest-reporters','~>1.1'
   gem 'rake', '>=11'
   gem 'rubocop-minitest'
   gem 'rubocop-performance'
