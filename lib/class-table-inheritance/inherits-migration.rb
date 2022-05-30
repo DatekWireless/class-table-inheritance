@@ -15,7 +15,7 @@ module InheritsMigration
         association_inst = association_type.send(:new)
         attr_column = association_inst.column_for_attribute(association_type.primary_key)
         
-        field_option = {:primary_key => true, :null => false}
+        field_option = {primary_key: true, null: false}
         field_option[:limit] = attr_column.limit if attr_column.limit                
         table_defintion.column "#{column_to_create}_id", attr_column.type, field_option
       end

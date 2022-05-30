@@ -43,7 +43,7 @@ class ActiveRecord::Base
     end
     
     # add an association
-    belongs_to association_id, :class_name => class_name, :dependent => :destroy
+    belongs_to association_id, class_name: class_name, dependent: :destroy
 
 
     # set the primary key, it' need because the generalized table doesn't have
@@ -88,12 +88,16 @@ class ActiveRecord::Base
     inherited_columns = association_class.column_names
     # Make a filter in association colluns to exclude the colluns that
     # the generalized class already have.
-    inherited_columns = inherited_columns.reject { |c| self.column_names.grep(c).length > 0 || c == "type" || c == "subtype"}
+    inherited_columns = inherited_columns.reject do |c|
+      self.column_names.grep(c).length > 0 || c == "type" || c == "subtype"
+    end                        
     # Get the methods of the association class and tun it to an Array of Strings.
     inherited_methods = association_class.reflections.map { |key,value| key.to_s }
     # Make a filter in association methods to exclude the methods that
     # the generalizae class already have.
-    inherited_methods = inherited_methods.reject { |c| self.reflections.map {|key, value| key.to_s }.include?(c) }
+    inherited_methods = inherited_methods.reject do |c| 
+      self.reflections.map { |key, value| key.to_s }.include?(c)
+    end
   
   
     # create the proxy methods to get and set the properties and methods

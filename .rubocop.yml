@@ -1,6 +1,5 @@
 inherit_from: .rubocop_todo.yml
 require:
-  - rubocop-md
   - rubocop-minitest
   - rubocop-performance
   - rubocop-rails
@@ -79,13 +78,6 @@ Rails:
 
 Rails/FilePath:
   Enabled: false
-
-Rails/Output:
-  Exclude:
-    - 'db/migrate/*.rb'
-
-Rails/UnknownEnv:
-  Environments: development, test, beta, production
 
 Style/ClassAndModuleChildren:
   Enabled: false

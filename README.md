@@ -57,19 +57,19 @@ Example
 
 ```ruby
   create_table :products do |t|
-    t.string :description, :null => false
+    t.string :description, null: false
     t.string :subtype # Only if you need access of both side see example
     t.decimal :price
     t.timestamps
   end
   
-  create_table :books, :inherits => :product do |t|
-    t.string :author, :null => false
+  create_table :books, inherits: :product do |t|
+    t.string :author, null: false
   end
   
-  create_table :videos, :inherits => :product do |t|
-    t.string :year, :null => false
-    t.string :genre, :null => false
+  create_table :videos, inherits: :product do |t|
+    t.string :year, null: false
+    t.string :genre, null: false
   end
 ```
 
@@ -112,11 +112,11 @@ Module inheritance
 ### Migrations 
 ```ruby
 create_table :mod_users do |t|
-  t.string :name, :null => false
+  t.string :name, null: false
 end  
 
-create_table :managers, :inherits => 'Mod::User' do |t|
-  t.string :salary, :null => false
+create_table :managers, inherits: 'Mod::User' do |t|
+  t.string :salary, null: false
 end
 ```
 
